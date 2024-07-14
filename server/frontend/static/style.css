@@ -28,8 +28,24 @@ img{
 }
 
 .container{
-  justify-content: center;
+  justify-content: space-evenly;
+  border: 2px solid grey; 
+  border-radius: 10px; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  
 }
+
+.header-image {
+    display: block;
+    margin:0 auto;
+    height: 23em;
+    width:60em;
+    margin-top:20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+  }
+
 .details{
   font-size: 20px;
   color: rgb(97, 64, 128);
