@@ -75,7 +75,7 @@ const PostReview = () => {
     }
   }
 
-  const get_cars = async ()=>{
+  const get_cars = async () => {
     const res = await fetch(carmodels_url, {
       method: "GET"
     });
