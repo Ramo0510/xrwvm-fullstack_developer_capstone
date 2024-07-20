@@ -10,6 +10,7 @@ import Header from '../Header/Header';
 
 const Dealer = () => {
 
+
   const [dealer, setDealer] = useState({});
   const [reviews, setReviews] = useState([]);
   const [unreviewed, setUnreviewed] = useState(false);
@@ -51,7 +52,7 @@ const Dealer = () => {
   }
 
   const senti_icon = (sentiment)=>{
-    let icon = sentiment === "positive"?positive_icon:sentiment==="negative"?negative_icon:neutral_icon;
+    let icon = sentiment === "positive"?positive_icon:sentiment === "negative"?negative_icon:neutral_icon;
     return icon;
   }
 

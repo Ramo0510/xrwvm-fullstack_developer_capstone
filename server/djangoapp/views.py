@@ -109,15 +109,7 @@ def get_dealer_reviews(request, dealer_id):
         endpoint = f"/fetchReviews/dealer/{dealer_id}"
         reviews = get_request(endpoint)
         for review_detail in reviews:
-            try:
-                response = analyze_review_sentiments(review_detail['review'])
-                if response and 'sentiment' in response:
-                    review_detail['sentiment'] = response['sentiment']
-                else:
-                    review_detail['sentiment'] = 'unknown'
-            except Exception as e:
-                logger.error(f"Error analyzing sentiment: {e}")
-                review_detail['sentiment'] = 'error'
+            analyze_review_sentiments(review_detail['review'])
         return JsonResponse({"status": 200, "reviews": reviews})
     else:
         return JsonResponse({"status": 400, "message": "Bad Request"})
@@ -127,9 +119,9 @@ def get_dealer_details(request, dealer_id):
     if(dealer_id):
         endpoint = f"/fetchDealer/{dealer_id}"
         dealership = get_request(endpoint)
-        return JsonResponse({"status":200,"dealer":dealership})
+        return JsonResponse({"status":200,"dealer": dealership})
     else:
-        return JsonResponse({"status":400,"message":"Bad Request"})
+        return JsonResponse({"status": 400, "message": "Bad Request"})
 
 # Create a `add_review` view to submit a review
 @csrf_exempt
